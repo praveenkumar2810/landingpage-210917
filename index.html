@@ -1,0 +1,143 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); }
+  .hero { padding: 3rem 1.5rem 2rem; text-align: center; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: 999px; padding: 4px 12px; font-size: 12px; color: var(--color-text-secondary); margin-bottom: 1.25rem; }
+  .badge .dot { width: 6px; height: 6px; border-radius: 50%; background: #3B6D11; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  h1 { font-size: 28px; font-weight: 500; color: var(--color-text-primary); line-height: 1.3; margin-bottom: 0.75rem; }
+  .subtitle { font-size: 15px; color: var(--color-text-secondary); max-width: 520px; margin: 0 auto 2rem; line-height: 1.6; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 12px; padding: 0 1rem 1.5rem; }
+  .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; cursor: pointer; transition: border-color 0.15s; text-decoration: none; display: block; }
+  .card:hover { border-color: var(--color-border-secondary); }
+  .card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.75rem; }
+  .icon-wrap { width: 40px; height: 40px; border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .tag { font-size: 11px; padding: 3px 8px; border-radius: 999px; font-weight: 500; }
+  .tag-pub { background: #EAF3DE; color: #3B6D11; }
+  .tag-priv { background: var(--color-background-secondary); color: var(--color-text-secondary); border: 0.5px solid var(--color-border-tertiary); }
+  .card-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 0.4rem; line-height: 1.4; }
+  .card-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+  .card-footer { margin-top: 1rem; padding-top: 0.75rem; border-top: 0.5px solid var(--color-border-tertiary); display: flex; align-items: center; justify-content: space-between; }
+  .link-text { font-size: 12px; color: var(--color-text-secondary); }
+  .arrow { font-size: 14px; color: var(--color-text-secondary); }
+  .card:hover .arrow { color: var(--color-text-primary); }
+  .stats-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; padding: 0 1rem 1.5rem; }
+  .stat { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 0.6rem 1rem; text-align: center; min-width: 100px; }
+  .stat-num { font-size: 20px; font-weight: 500; color: var(--color-text-primary); }
+  .stat-lbl { font-size: 11px; color: var(--color-text-secondary); margin-top: 2px; }
+  .section-label { font-size: 11px; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.08em; padding: 0 1rem 0.75rem; font-weight: 500; }
+  .updated { font-size: 11px; color: var(--color-text-secondary); text-align: center; padding-bottom: 1.5rem; }
+  #last-updated { color: var(--color-text-primary); font-weight: 500; }
+</style>
+
+<div class="hero">
+  <div class="badge"><span class="dot"></span> Agri-Intelligence Platform</div>
+  <h1>Agricultural GIS & Remote Sensing Suite</h1>
+  <p class="subtitle">Six integrated tools for ground-truthing, risk analysis, and satellite calibration — powered by DA&FW 2023–24 data and Sentinel-2A indices.</p>
+</div>
+
+<div class="stats-row">
+  <div class="stat"><div class="stat-num">237</div><div class="stat-lbl">Spectral indices</div></div>
+  <div class="stat"><div class="stat-num">23</div><div class="stat-lbl">Crop types</div></div>
+  <div class="stat"><div class="stat-num">2</div><div class="stat-lbl">Seasons covered</div></div>
+  <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">Live tools</div></div>
+</div>
+
+<p class="section-label">Public tools</p>
+<div class="grid" id="pub-grid"></div>
+
+<p class="section-label" style="margin-top:0.5rem;">Private / restricted tools</p>
+<div class="grid" id="priv-grid"></div>
+
+<p class="updated">Last refreshed: <span id="last-updated"></span></p>
+
+<script>
+const tools = [
+  {
+    title: "GT Planning – All India",
+    desc: "District-level ground-truth planning using DA&FW 2023–24 data with soil type suitability and agro-climatic zone context.",
+    icon: "🗺",
+    iconBg: "#EAF3DE",
+    href: "https://praveenkumar2810.github.io/gt_plannerss/",
+    pub: true,
+    tag: "DA&FW 2023–24"
+  },
+  {
+    title: "ISRO Calibration Sites",
+    desc: "Satellite calibration site locations for accurate remote sensing — integrated with ISRO ground station network.",
+    icon: "🛰",
+    iconBg: "#E6F1FB",
+    href: "https://praveenkumar2810.github.io/isro_calibration_sites/",
+    pub: true,
+    tag: "ISRO"
+  },
+  {
+    title: "Remote Sensing Index Database",
+    desc: "Sentinel-2A complete index database — 237 spectral indices with NDVI phenology curves and field-ready thresholds for 23 Indian crops.",
+    icon: "📡",
+    iconBg: "#FAEEDA",
+    href: "https://thilagaraj-git-hub.github.io/Remote-Sensing_Index_Database_Sentinel2A/",
+    pub: true,
+    tag: "Sentinel-2A"
+  },
+  {
+    title: "Bihar Kharif Agri-Risk Dashboard",
+    desc: "Interactive agricultural risk analysis for the Kharif season in Bihar — crop stress, flood exposure, and district-level risk scoring.",
+    icon: "🌾",
+    iconBg: "#FAECE7",
+    href: "https://praveenkumar2810.github.io/bihar_kharif_aggrisk2209/",
+    pub: true,
+    tag: "Bihar · Kharif"
+  },
+  {
+    title: "District-Level GIS Dashboard",
+    desc: "Interactive GIS-based dashboard for district-level agricultural analysis, insights, and spatial overlays.",
+    icon: "🔒",
+    iconBg: "var(--color-background-secondary)",
+    href: "https://praveenkumar2810.github.io/gis_dashboard/",
+    pub: false,
+    tag: "Restricted"
+  },
+  {
+    title: "Farm-Level GT Dashboard",
+    desc: "Farm-scale ground-truth and agricultural insights dashboard — field boundaries, crop identification, and scan-level analysis.",
+    icon: "🔒",
+    iconBg: "var(--color-background-secondary)",
+    href: "https://praveenkumar2810.github.io/farmscandashboard2109/",
+    pub: false,
+    tag: "Restricted"
+  }
+];
+
+function makeCard(t) {
+  const card = document.createElement('a');
+  card.href = t.href;
+  card.target = '_blank';
+  card.rel = 'noopener';
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-top">
+      <div class="icon-wrap" style="background:${t.iconBg}">${t.icon}</div>
+      <span class="tag ${t.pub ? 'tag-pub' : 'tag-priv'}">${t.pub ? 'Public' : 'Private'}</span>
+    </div>
+    <div class="card-title">${t.title}</div>
+    <div class="card-desc">${t.desc}</div>
+    <div class="card-footer">
+      <span class="link-text">${t.tag}</span>
+      <span class="arrow">↗</span>
+    </div>
+  `;
+  return card;
+}
+
+const pubGrid = document.getElementById('pub-grid');
+const privGrid = document.getElementById('priv-grid');
+tools.forEach(t => (t.pub ? pubGrid : privGrid).appendChild(makeCard(t)));
+
+const now = new Date();
+document.getElementById('last-updated').textContent = now.toLocaleString('en-IN', {
+  day: 'numeric', month: 'short', year: 'numeric',
+  hour: '2-digit', minute: '2-digit'
+});
+</script>
