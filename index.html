@@ -379,7 +379,7 @@
     <span class="header-dot"></span>
     agri-intelligence platform
   </div>
-  <span class="header-count" id="tool-count">9 tools</span>
+  <span class="header-count" id="tool-count">10 tools</span>
 </header>
 
 <main>
@@ -389,14 +389,14 @@
       DA&amp;FW 2023–24 · Sentinel-2A
     </div>
     <h1>Agricultural GIS &amp;<br><strong>Remote Sensing Suite</strong></h1>
-    <p>Nine integrated tools for ground-truthing, risk analysis, orchard monitoring, satellite calibration, climate intelligence, and historical geo-analysis across India.</p>
+    <p>Ten integrated tools for ground-truthing, risk analysis, orchard monitoring, satellite calibration, climate intelligence, paddy water monitoring, and historical geo-analysis across India.</p>
   </div>
 
   <div class="stats">
     <div class="stat"><span class="stat-num">237</span><span class="stat-lbl">Spectral indices</span></div>
     <div class="stat"><span class="stat-num">23</span><span class="stat-lbl">Crop types</span></div>
     <div class="stat"><span class="stat-num">2</span><span class="stat-lbl">Seasons</span></div>
-    <div class="stat"><span class="stat-num">9</span><span class="stat-lbl">Live tools</span></div>
+    <div class="stat"><span class="stat-num">10</span><span class="stat-lbl">Live tools</span></div>
   </div>
 
   <div class="section">
@@ -467,16 +467,28 @@ const tools = [
     pills: []
   },
   {
-    title: "India Climate Anomaly Atlas",
-    desc: "Open climate atlas tracking rainfall and temperature anomalies across India — weekly, monthly, and yearly views at state and district level. Covers surplus/deficit rainfall, max/min temperature departures, and weekly trajectory trends against 1961–2010 normals.",
+    title: "SatSure Climate Anomaly Atlas",
+    desc: "SatSure-branded climate intelligence dashboard tracking IMD rainfall deviations across India — weekly surplus/deficit by district and state, with trajectory trends benchmarked against 1961–2010 normals. Covers Kharif and Rabi risk windows.",
     icon: "🌦",
     iconBg: "#E6F4FB",
-    href: "https://santa1309.github.io/india-climate-anomaly-atlas/",
+    href: "https://santa1309.github.io/climate_change_at_glance/satsure_dashboard/",
     pub: true,
     badge: "New",
     badgeClass: "badge-new",
     featured: true,
-    pills: ["Rainfall Anomaly", "Temp Anomaly", "District-Level", "Weekly · Monthly · Yearly"]
+    pills: ["Rainfall Deviation", "IMD Data", "District-Level", "Weekly · Monthly · Yearly"]
+  },
+  {
+    title: "AWD & Flooding Plot Dashboard",
+    desc: "Sentinel-1 SAR-based alternate wetting & drying (AWD) and flood monitoring for 5,085 paddy plots in Nalgonda, Telangana — Kharif 2025. Tracks relative water depth (RWDI) per plot with IMD rainfall overlay, comparing DSR vs transplanted paddy water dynamics.",
+    icon: "🌾",
+    iconBg: "#E8F5E9",
+    href: "https://santa1309.github.io/awd-flooding-dashboard/",
+    pub: true,
+    badge: "New",
+    badgeClass: "badge-new",
+    featured: true,
+    pills: ["Sentinel-1 SAR", "AWD", "DSR vs TPR", "5,085 Plots", "Nalgonda"]
   },
   {
     title: "Historical Regions of India",
